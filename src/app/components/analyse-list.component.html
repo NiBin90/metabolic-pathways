@@ -1,0 +1,29 @@
+<div class="row col-md-12">
+  <div class="panel panel-default">
+
+
+    <div class="panel-heading">
+      <h3 class="panel-title">NODE TYPES</h3>
+    </div>
+    
+    <div class="panel-body">
+      <ul *ngFor="let node of nodes">
+        {{ node.typeName }}:  <span style="float:right"><b>{{ node.numberOfType }}</b></span>
+      </ul>
+    </div>
+    
+
+    <div class="panel-heading">
+      <h3 class="panel-title">GENES FOR MORE THAN ONE REACTION</h3>
+    </div>
+
+    <div class="panel-body">
+      <ul *ngFor="let gene of genes" style="margin-bottom:0">
+        {{ gene.geneName }} <span style="float:right"><b>{{ gene.numberOfReactions }}</b></span>
+        <hr style="margin:2px">
+      </ul>
+    </div>
+
+
+  </div>
+</div>

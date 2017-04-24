@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+  <div class="panel-heading" style="padding-top: 20px; padding-bottom:1px">
+    <div class="row">
+      <div class="col-md-6">
+
+
+        <!-- Switch Schema-->
+        <div class="switch">
+
+          <label>
+    Schemes<br>
+    Default
+    <input type="checkbox" (click)="switchscheme($event.target.checked)">
+    <span class="lever"></span>
+    Green
+    </label>
+        </div>
+      </div>
+
+      <!-- load file-->
+      <div class="col-md-6">
+        <label class="btn btn-default btn-primary pull-right">
+          <input type="file" class="form-control-file pull-right" id="jsondata" (change)="readFile()" style="display:none;">
+          Load JSON Map
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- map content-->
+  <div class="panel-body">
+    <div style="height:100%; width: 100%;">
+      <div class="escher-container" id="map_box" style="height:100%; width: 100%"></div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+
+    <label style="color:red">
+              {{selectedPath}}
+            </label>
+
+
+
+  </div>
+  <label style="float:right">
+              NOTE: zoom in and select a connection.
+            </label>
+
+</div>
