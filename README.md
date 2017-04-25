@@ -1,7 +1,7 @@
 # metabolic-pathways
 a web application of metabolic pathways map visualization. 
 
-# Demo
+## Demo
 Navigate to https://nibin90.github.io/metabolic-pathways/ 
 
 ## Development server
