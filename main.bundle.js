@@ -1,9 +1,9 @@
 webpackJsonp([1,4],{
 
-/***/ 139:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(45)();
+exports = module.exports = __webpack_require__(47)(false);
 // imports
 
 
@@ -18,31 +18,31 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 141:
+/***/ 145:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation -->\n<nav>\n  <div class=\"nav-wrapper layout-margin\">\n    <a ui-sref=\"base.default\" href=\"https://www.genialis.com/\">\n      <span class=\"gen-title\" style=\"font-size: 18px\">Genialis Demo: Metabolic pathways visualizer</span>\n    </a>\n    <br>\n  </div>\n</nav>\n<div>\n  <p></p><br>\n</div>\n\n<!-- Content -->\n<div class=\"container-fluid\">\n  <div class=\"row\">\n\n    <!-- map content -->\n    <div class=\"col-md-9\">\n      <mymap-component></mymap-component>\n    </div>\n\n    <!-- analyse list -->\n    <div class=\"col-md-3\">\n      <analyse-list></analyse-list>\n    </div>\n\n  </div>\n</div>"
+module.exports = "<!-- Navigation -->\n<nav>\n  <div class=\"nav-wrapper layout-margin\" style='background-color: #26a69a'>\n    <a ui-sref=\"base.default\" href=\"https://www.genialis.com/\">\n      <span class=\"gen-title\" style=\"font-size: 18px\">Genialis Demo: Metabolic pathways visualizer</span>\n    </a>\n    <br>\n  </div>\n</nav>\n<div>\n  <p></p><br>\n</div>\n\n<!-- Content -->\n<div class=\"container-fluid\">\n  <div class=\"row\">\n\n    <!-- map content -->\n    <div class=\"col-md-9\">\n      <mymap-component></mymap-component>\n    </div>\n\n    <!-- analyse list -->\n    <div class=\"col-md-3\">\n      <analyse-list></analyse-list>\n    </div>\n\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ 142:
+/***/ 146:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"row col-md-12\">\r\n  <div class=\"panel panel-default\">\r\n\r\n\r\n    <div class=\"panel-heading\">\r\n      <h3 class=\"panel-title\">NODE TYPES</h3>\r\n    </div>\r\n    \r\n    <div class=\"panel-body\">\r\n      <ul *ngFor=\"let node of nodes\">\r\n        {{ node.typeName }}:  <span style=\"float:right\"><b>{{ node.numberOfType }}</b></span>\r\n      </ul>\r\n    </div>\r\n    \r\n\r\n    <div class=\"panel-heading\">\r\n      <h3 class=\"panel-title\">GENES FOR MORE THAN ONE REACTION</h3>\r\n    </div>\r\n\r\n    <div class=\"panel-body\">\r\n      <ul *ngFor=\"let gene of genes\" style=\"margin-bottom:0\">\r\n        {{ gene.geneName }} <span style=\"float:right\"><b>{{ gene.numberOfReactions }}</b></span>\r\n        <hr style=\"margin:2px\">\r\n      </ul>\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ 143:
+/***/ 147:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" style=\"padding-top: 20px; padding-bottom:1px\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n\n\n        <!-- Switch Schema-->\n        <div class=\"switch\">\n\n          <label>\n    Schemes<br>\n    Default\n    <input type=\"checkbox\" (click)=\"switchscheme($event.target.checked)\">\n    <span class=\"lever\"></span>\n    Green\n    </label>\n        </div>\n      </div>\n\n      <!-- load file-->\n      <div class=\"col-md-6\">\n        <label class=\"btn btn-default btn-primary pull-right\">\n          <input type=\"file\" class=\"form-control-file pull-right\" id=\"jsondata\" (change)=\"readFile()\" style=\"display:none;\">\n          Load JSON Map\n        </label>\n      </div>\n    </div>\n  </div>\n\n  <!-- map content-->\n  <div class=\"panel-body\">\n    <div style=\"height:100%; width: 100%;\">\n      <div class=\"escher-container\" id=\"map_box\" style=\"height:100%; width: 100%\"></div>\n    </div>\n  </div>\n\n  <div class=\"col-md-6\">\n\n    <label style=\"color:red\">\n              {{selectedPath}}\n            </label>\n\n\n\n  </div>\n  <label style=\"float:right\">\n              NOTE: zoom in and select a connection.\n            </label>\n\n</div>"
 
 /***/ }),
 
-/***/ 168:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
@@ -52,9 +52,9 @@ module.exports = __webpack_require__(71);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_genes__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_nodes__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_genes__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_nodes__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_d3__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataAnalyse; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -233,7 +233,7 @@ DataAnalyse = __decorate([
 
 /***/ }),
 
-/***/ 70:
+/***/ 74:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -242,20 +242,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 70;
+webpackEmptyContext.id = 74;
 
 
 /***/ }),
 
-/***/ 71:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(88);
 
 
 
@@ -268,7 +268,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 78:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -289,7 +289,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'my-app',
-        template: __webpack_require__(141),
+        template: __webpack_require__(145),
     })
 ], AppComponent);
 
@@ -297,17 +297,17 @@ AppComponent = __decorate([
 
 /***/ }),
 
-/***/ 79:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_mymap_component__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_analyse_list_component__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_mymap_component__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_analyse_list_component__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_data_analyse_service__ = __webpack_require__(28);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -350,7 +350,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 80:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -386,7 +386,7 @@ var AnalyseListComponent = (function () {
 AnalyseListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'analyse-list',
-        template: __webpack_require__(142)
+        template: __webpack_require__(146)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_data_analyse_service__["a" /* DataAnalyse */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_data_analyse_service__["a" /* DataAnalyse */]) === "function" && _a || Object])
 ], AnalyseListComponent);
@@ -396,7 +396,7 @@ var _a;
 
 /***/ }),
 
-/***/ 81:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -493,8 +493,8 @@ var MyMapComponent = (function () {
 MyMapComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'mymap-component',
-        template: __webpack_require__(143),
-        styles: [__webpack_require__(139)]
+        template: __webpack_require__(147),
+        styles: [__webpack_require__(143)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_data_analyse_service__["a" /* DataAnalyse */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_data_analyse_service__["a" /* DataAnalyse */]) === "function" && _a || Object])
 ], MyMapComponent);
@@ -504,7 +504,7 @@ var _a;
 
 /***/ }),
 
-/***/ 82:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -521,7 +521,7 @@ var Genes = (function () {
 
 /***/ }),
 
-/***/ 83:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -538,7 +538,7 @@ var Nodes = (function () {
 
 /***/ }),
 
-/***/ 84:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -555,5 +555,5 @@ var environment = {
 
 /***/ })
 
-},[168]);
+},[172]);
 //# sourceMappingURL=main.bundle.js.map
