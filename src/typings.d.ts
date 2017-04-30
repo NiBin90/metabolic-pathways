@@ -1,5 +1,4 @@
 /* SystemJS module definition */
-
 declare var escher;
 
 declare var module: NodeModule;

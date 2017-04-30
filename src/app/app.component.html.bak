@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <nav>
-  <div class="nav-wrapper layout-margin" style='background-color: #26a69a'>
+  <div class="nav-wrapper layout-margin" syle='background-color: #26a69a'>
     <a ui-sref="base.default" href="https://www.genialis.com/">
       <span class="gen-title" style="font-size: 18px">Genialis Demo: Metabolic pathways visualizer</span>
     </a>
