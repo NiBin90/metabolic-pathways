@@ -4,8 +4,6 @@ import { DataAnalyse } from '../services/data-analyse.service';
 
 import * as d3 from 'd3';
 
-declare var jQuery: any;
-
 @Component({
   selector: 'mymap-component',
   templateUrl: './mymap.component.html',
@@ -31,18 +29,12 @@ export class MyMapComponent implements DoCheck {
   }
   // switch scheme 
   switchscheme(checked: boolean) {
-
+    let selection = d3.selectAll('path.segment')
     if (checked) {
-      //segment change.
-      jQuery("svg.escher-svg .segment").css('stroke', '#2bbbad');
-      //arrowhead change.
-      jQuery("svg.escher-svg .arrowhead").css('stroke', '#2bbbad');
+      selection.style('stroke', '#2bbbad');
     }
     else {
-      //segment recover.
-      jQuery("svg.escher-svg .segment").css('stroke', '#334E75');
-      //arrowhead recover.
-      jQuery("svg.escher-svg .arrowhead").css('stroke', '#334E75');
+      selection.style('stroke', '#334E75');
     }
 
   }

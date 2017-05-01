@@ -5,6 +5,7 @@ import * as d3 from 'd3';
 
 // for highting the selected connetion.
 declare var jQuery: any;
+declare var escher: any;
 
 @Injectable()
 export class DataAnalyse {
@@ -25,7 +26,7 @@ export class DataAnalyse {
   genes: Genes[] = [];
   // selectedPath return back to the map.
   selectedPath: string;
-  
+
   constructor() { }
 
   async getFile(file) {
@@ -56,16 +57,18 @@ export class DataAnalyse {
   // Get click on segment group and List the connection of both end nodes.
   AnalyseConnetion() {
     // MouseOver and out tips.
-    d3.selectAll('path.segment').on("mouseover", (data, event) => {
-      jQuery('path.segment').css('stroke-width', '15px');
+    let selection = d3.selectAll('path.segment');
+    selection.on("mouseover", (data, event) => {
+      selection.style('stroke-width', '15px');
     });
-    d3.selectAll('path.segment').on("mouseout", (data) => {
-      jQuery('path.segment').css('stroke-width', '10px');
+    selection.on("mouseout", (data) => {
+      selection.style('stroke-width', '10px');
     });
-    d3.selectAll('path.segment').on("click", (data) => {
-      // nodeNameFrom and nodeNameTo
-      var nodeNameFrom = this.pathwayMap.map.nodes[data.from_node_id].node_type;
-      var nodeNameTo = this.pathwayMap.map.nodes[data.to_node_id].node_type;
+    // Click on the path.
+    selection.on("click", (data) => {
+      // nodeNameFrom and nodeNameTo, some nodes have no name, but all nodes has property of node_type.
+      let nodeNameFrom = this.pathwayMap.map.nodes[data.from_node_id].node_type;
+      let nodeNameTo = this.pathwayMap.map.nodes[data.to_node_id].node_type;
 
       if (this.pathwayMap.map.nodes[data.from_node_id].name != undefined) {
         nodeNameFrom = this.pathwayMap.map.nodes[data.from_node_id].name;
@@ -73,15 +76,15 @@ export class DataAnalyse {
       if (this.pathwayMap.map.nodes[data.to_node_id].name != undefined) {
         nodeNameTo = this.pathwayMap.map.nodes[data.to_node_id].name;
       }
-      this.selectedPath = 'From: ' + nodeNameFrom + ', To: ' + nodeNameTo;
+      this.selectedPath = `From ${nodeNameFrom}, to ${nodeNameTo}`;
     });
   }
-//list nodetypes.
+  //list nodetypes.
   listNodes() {
-      this.nodes = [];
-      this.nodesObject = {};   
+    this.nodes = [];
+    this.nodesObject = {};
 
-    for (var i in this.pathwayMap.map.nodes) {
+    for (let i in this.pathwayMap.map.nodes) {
       if (this.nodesObject[this.pathwayMap.map.nodes[i].node_type] != null) {
         this.nodesObject[this.pathwayMap.map.nodes[i].node_type]++;
       } else {
@@ -89,8 +92,8 @@ export class DataAnalyse {
       }
     }
 
-    for (var i in this.nodesObject) {
-      var newNodes = new Nodes(i, this.nodesObject[i]);
+    for (let i in this.nodesObject) {
+      let newNodes = new Nodes(i, this.nodesObject[i]);
       this.nodes.push(newNodes);
     }
 
@@ -124,7 +127,7 @@ export class DataAnalyse {
     //sort the genes.
     sortByKey(this.genes, 'numberOfReactions');
     function sortByKey(array, key) {
-      return array.sort(function (a, b) {
+      return array.sort((a, b)=>{
         var x = a[key]; var y = b[key];
         return ((x > y) ? -1 : ((x < y) ? 1 : 0));
       });

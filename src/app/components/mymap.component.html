@@ -1,13 +1,22 @@
 <div class="panel panel-default">
   <div class="panel-heading" style="padding-top: 20px; padding-bottom:1px">
     <div class="row">
+
+
+      <!-- load file-->
+      <div class="col-md-6">
+        <label class="btn btn-default btn-primary pull-left">
+          <input type="file" class="form-control-file pull-left" id="jsondata" (change)="readFile()" style="display:none;">
+          Load JSON Map
+        </label>
+      </div>
       <div class="col-md-6">
 
 
         <!-- Switch Schema-->
         <div class="switch">
 
-          <label>
+          <label style="float:right">
     Schemes<br>
     Default
     <input type="checkbox" (click)="switchscheme($event.target.checked)">
@@ -15,14 +24,6 @@
     Green
     </label>
         </div>
-      </div>
-
-      <!-- load file-->
-      <div class="col-md-6">
-        <label class="btn btn-default btn-primary pull-right">
-          <input type="file" class="form-control-file pull-right" id="jsondata" (change)="readFile()" style="display:none;">
-          Load JSON Map
-        </label>
       </div>
     </div>
   </div>
