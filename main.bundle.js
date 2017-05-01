@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ 145:
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation -->\n<nav>\n  <div class=\"nav-wrapper layout-margin\" style='background-color: #26a69a'>\n    <a ui-sref=\"base.default\" href=\"https://www.genialis.com/\">\n      <span class=\"gen-title\" style=\"font-size: 18px\">Genialis Demo: Metabolic pathways visualizer</span>\n    </a>\n    <br>\n  </div>\n</nav>\n<div>\n  <p></p><br>\n</div>\n\n<!-- Content -->\n<div class=\"container-fluid\">\n  <div class=\"row\">\n\n    <!-- map content -->\n    <div class=\"col-md-9\">\n      <mymap-component></mymap-component>\n    </div>\n\n    <!-- analyse list -->\n    <div class=\"col-md-3\">\n      <analyse-list></analyse-list>\n    </div>\n\n  </div>\n</div>"
+module.exports = "<!-- Navigation -->\n<nav>\n  <div class=\"nav-wrapper layout-margin\" style='background-color: #26a69a'>\n    <a ui-sref=\"base.default\" href=\"/\">\n      <span class=\"gen-title\" style=\"font-size: 18px\">Genialis Demo: Metabolic pathways visualizer</span>\n    </a>\n    <br>\n  </div>\n</nav>\n<div>\n  <p></p><br>\n</div>\n\n<!-- Content -->\n<div class=\"container-fluid\">\n  <div class=\"row\">\n\n    <!-- map content -->\n    <div class=\"col-md-9\">\n      <mymap-component></mymap-component>\n    </div>\n\n    <!-- analyse list -->\n    <div class=\"col-md-3\">\n      <analyse-list></analyse-list>\n    </div>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -35,14 +35,14 @@ module.exports = "<div class=\"row col-md-12\">\r\n  <div class=\"panel panel-de
 /***/ 147:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" style=\"padding-top: 20px; padding-bottom:1px\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n\n\n        <!-- Switch Schema-->\n        <div class=\"switch\">\n\n          <label>\n    Schemes<br>\n    Default\n    <input type=\"checkbox\" (click)=\"switchscheme($event.target.checked)\">\n    <span class=\"lever\"></span>\n    Green\n    </label>\n        </div>\n      </div>\n\n      <!-- load file-->\n      <div class=\"col-md-6\">\n        <label class=\"btn btn-default btn-primary pull-right\">\n          <input type=\"file\" class=\"form-control-file pull-right\" id=\"jsondata\" (change)=\"readFile()\" style=\"display:none;\">\n          Load JSON Map\n        </label>\n      </div>\n    </div>\n  </div>\n\n  <!-- map content-->\n  <div class=\"panel-body\">\n    <div style=\"height:100%; width: 100%;\">\n      <div class=\"escher-container\" id=\"map_box\" style=\"height:100%; width: 100%\"></div>\n    </div>\n  </div>\n\n  <div class=\"col-md-6\">\n\n    <label style=\"color:red\">\n              {{selectedPath}}\n            </label>\n\n\n\n  </div>\n  <label style=\"float:right\">\n              NOTE: zoom in and select a connection.\n            </label>\n\n</div>"
+module.exports = "<div class=\"panel panel-default\">\n  <div class=\"panel-heading\" style=\"padding-top: 20px; padding-bottom:1px\">\n    <div class=\"row\">\n\n\n      <!-- load file-->\n      <div class=\"col-md-6\">\n        <label class=\"btn btn-default btn-primary pull-left\">\n          <input type=\"file\" class=\"form-control-file pull-left\" id=\"jsondata\" (change)=\"readFile()\" style=\"display:none;\">\n          Load JSON Map\n        </label>\n      </div>\n      <div class=\"col-md-6\">\n\n\n        <!-- Switch Schema-->\n        <div class=\"switch\">\n\n          <label style=\"float:right\">\n    Schemes<br>\n    Default\n    <input type=\"checkbox\" (click)=\"switchscheme($event.target.checked)\">\n    <span class=\"lever\"></span>\n    Green\n    </label>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- map content-->\n  <div class=\"panel-body\">\n    <div style=\"height:100%; width: 100%;\">\n      <div class=\"escher-container\" id=\"map_box\" style=\"height:100%; width: 100%\"></div>\n    </div>\n  </div>\n\n  <div class=\"col-md-6\">\n\n    <label style=\"color:red\">\n              {{selectedPath}}\n            </label>\n\n\n\n  </div>\n  <label style=\"float:right\">\n              NOTE: zoom in and select a connection.\n            </label>\n\n</div>"
 
 /***/ }),
 
 /***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(75);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -52,9 +52,9 @@ module.exports = __webpack_require__(75);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_genes__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_nodes__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_genes__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_nodes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_d3__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataAnalyse; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -152,14 +152,16 @@ var DataAnalyse = (function () {
     DataAnalyse.prototype.AnalyseConnetion = function () {
         var _this = this;
         // MouseOver and out tips.
-        __WEBPACK_IMPORTED_MODULE_3_d3__["selectAll"]('path.segment').on("mouseover", function (data, event) {
-            jQuery('path.segment').css('stroke-width', '15px');
+        var selection = __WEBPACK_IMPORTED_MODULE_3_d3__["selectAll"]('path.segment');
+        selection.on("mouseover", function (data, event) {
+            selection.style('stroke-width', '15px');
         });
-        __WEBPACK_IMPORTED_MODULE_3_d3__["selectAll"]('path.segment').on("mouseout", function (data) {
-            jQuery('path.segment').css('stroke-width', '10px');
+        selection.on("mouseout", function (data) {
+            selection.style('stroke-width', '10px');
         });
-        __WEBPACK_IMPORTED_MODULE_3_d3__["selectAll"]('path.segment').on("click", function (data) {
-            // nodeNameFrom and nodeNameTo
+        // Click on the path.
+        selection.on("click", function (data) {
+            // nodeNameFrom and nodeNameTo, some nodes have no name, but all nodes has property of node_type.
             var nodeNameFrom = _this.pathwayMap.map.nodes[data.from_node_id].node_type;
             var nodeNameTo = _this.pathwayMap.map.nodes[data.to_node_id].node_type;
             if (_this.pathwayMap.map.nodes[data.from_node_id].name != undefined) {
@@ -168,7 +170,7 @@ var DataAnalyse = (function () {
             if (_this.pathwayMap.map.nodes[data.to_node_id].name != undefined) {
                 nodeNameTo = _this.pathwayMap.map.nodes[data.to_node_id].name;
             }
-            _this.selectedPath = 'From: ' + nodeNameFrom + ', To: ' + nodeNameTo;
+            _this.selectedPath = "From " + nodeNameFrom + ", to " + nodeNameTo;
         });
     };
     //list nodetypes.
@@ -233,7 +235,7 @@ DataAnalyse = __decorate([
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -242,20 +244,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 74;
+webpackEmptyContext.id = 75;
 
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(89);
 
 
 
@@ -268,7 +270,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 82:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -297,17 +299,17 @@ AppComponent = __decorate([
 
 /***/ }),
 
-/***/ 83:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_mymap_component__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_analyse_list_component__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_mymap_component__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_analyse_list_component__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_data_analyse_service__ = __webpack_require__(28);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -350,7 +352,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -396,12 +398,14 @@ var _a;
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_analyse_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_d3__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_d3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_d3__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyMapComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -449,6 +453,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 
 
+
 var MyMapComponent = (function () {
     function MyMapComponent(dataLoader) {
         this.dataLoader = dataLoader;
@@ -475,17 +480,12 @@ var MyMapComponent = (function () {
     };
     // switch scheme 
     MyMapComponent.prototype.switchscheme = function (checked) {
+        var selection = __WEBPACK_IMPORTED_MODULE_2_d3__["selectAll"]('path.segment');
         if (checked) {
-            //segment change.
-            jQuery("svg.escher-svg .segment").css('stroke', '#2bbbad');
-            //arrowhead change.
-            jQuery("svg.escher-svg .arrowhead").css('stroke', '#2bbbad');
+            selection.style('stroke', '#2bbbad');
         }
         else {
-            //segment recover.
-            jQuery("svg.escher-svg .segment").css('stroke', '#334E75');
-            //arrowhead recover.
-            jQuery("svg.escher-svg .arrowhead").css('stroke', '#334E75');
+            selection.style('stroke', '#334E75');
         }
     };
     return MyMapComponent;
@@ -504,7 +504,7 @@ var _a;
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -521,7 +521,7 @@ var Genes = (function () {
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -538,7 +538,7 @@ var Nodes = (function () {
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
