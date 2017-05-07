@@ -6,8 +6,7 @@ Navigate to https://nibin90.github.io/metabolic-pathways/
 
 ## Development server
 
-1£ºRun `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-2£ºClick `LOAD JSON MAP`, and choose a map from 'src\sample maps\' like: e_coli_core.Core metabolism.json.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Click `LOAD JSON MAP`, and choose a map from 'src\sample maps\' like: e_coli_core.Core metabolism.json.
 
 ## Code scaffolding
 

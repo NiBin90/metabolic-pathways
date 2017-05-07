@@ -1,5 +1,5 @@
 # metabolic-pathways
-a web application of metabolic pathways map visualization. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
+a web application of metabolic pathways map visualization based on https://github.com/vassiliilouridze/metabolic-pathway-visualizer. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
 
 ## Demo
 Navigate to https://nibin90.github.io/metabolic-pathways/ 
